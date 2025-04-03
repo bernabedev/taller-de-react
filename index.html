@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Taller de React para Principiantes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css"
+      id="theme"
+    />
+    <style>
+      :root {
+        --r-background-color: #0a1929;
+        --r-main-color: #f8f8f8;
+        --r-heading-color: #61dafb;
+        --r-link-color: #61dafb;
+        --r-link-color-hover: #4ba6d2;
+      }
+      .reveal h1 {
+        font-size: 1.5em;
+      }
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4 {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        text-transform: none;
+        color: var(--r-heading-color);
+      }
+      .reveal {
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      .github-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+        vertical-align: middle;
+      }
+      .react-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px auto;
+        object-fit: contain;
+      }
+      .feature-list li {
+        margin-bottom: 0.8em;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        margin-top: 2em;
+        gap: 10px;
+      }
+      .profile-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .highlight {
+        color: #61dafb;
+        font-weight: bold;
+      }
+      code {
+        background-color: rgba(97, 218, 251, 0.1);
+        border-radius: 3px;
+        padding: 2px 5px;
+      }
+      .dark-box {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .workshop-title {
+        font-size: 1.8em;
+      }
+      .react-icon-bg {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translate(-80%, -50%); /* Centra verticalmente */
+        width: 50vw;
+        height: auto;
+        max-height: 100vh;
+        object-fit: contain;
+        z-index: 10;
+        opacity: 0.02;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Slide 1: Cover -->
+        <section>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png"
+            class="react-icon-bg"
+            alt="React Logo"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png"
+            class="react-icon"
+            alt="React Logo"
+          />
+          <h1 class="workshop-title">Taller de React para Principiantes</h1>
+          <h3
+            style="
+              color: #ffffff;
+              font-size: 1.1em;
+              max-width: 600px;
+              text-align: center;
+              margin: 0 auto;
+            "
+          >
+            Construyendo un Buscador de Usuarios de GitHub
+          </h3>
+          <div class="profile">
+            <img
+              src="https://bernabe.dev/avatar.webp"
+              alt="Freilyn Bernabe"
+              class="profile-img"
+            />
+            <p>
+              Freilyn Bernabe<br /><span style="color: #61dafb"
+                >@bernabedev</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <!-- Slide 2: Agenda -->
+        <section>
+          <h2>¿Qué aprenderemos hoy?</h2>
+          <div class="dark-box">
+            <ul class="feature-list">
+              <li>Configuración de un proyecto React desde cero</li>
+              <li>Consumo de APIs externas (GitHub API)</li>
+              <li>
+                Gestión de estados con <code>useState</code> y
+                <code>useEffect</code>
+              </li>
+              <li>Manejo de errores y estados de carga</li>
+              <li>Guardar usuarios favoritos (localStorage)</li>
+              <li>Componentes reutilizables</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 3: Proyecto -->
+        <section>
+          <h2>Nuestro Proyecto</h2>
+          <div class="grid">
+            <div>
+              <h3>Buscador de Usuarios GitHub</h3>
+              <ul class="feature-list">
+                <li>Buscar usuarios por nombre</li>
+                <li>Ver detalles de perfil</li>
+                <li>Añadir/eliminar favoritos</li>
+                <li>Gestionar respuestas y errores</li>
+              </ul>
+            </div>
+            <div>
+              <img
+                src="/api/placeholder/350/250"
+                alt="GitHub User Finder Mockup"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4: Lo que aprenderemos -->
+        <section>
+          <h2>Conceptos clave que dominaremos</h2>
+          <ul class="feature-list">
+            <li>
+              <span class="highlight">Fetch API</span> - Comunicación con
+              servicios externos
+            </li>
+            <li>
+              <span class="highlight">async/await</span> - Gestión de
+              operaciones asíncronas
+            </li>
+            <li>
+              <span class="highlight">React Hooks</span> - useState, useEffect
+            </li>
+            <li>
+              <span class="highlight">Arquitectura de componentes</span> -
+              Organización del código
+            </li>
+            <li>
+              <span class="highlight">LocalStorage</span> - Persistencia de
+              datos en el navegador
+            </li>
+          </ul>
+        </section>
+
+        <!-- Slide 5: Extras -->
+        <section>
+          <h2>Posibles mejoras futuras</h2>
+          <div class="dark-box">
+            <ul class="feature-list">
+              <li>Modo oscuro / claro con Context API</li>
+              <li>Ver repositorios del usuario</li>
+              <li>Compartir perfiles por URL</li>
+              <li>Filtros de búsqueda avanzados</li>
+              <li>Estadísticas de actividad</li>
+              <li>PWA para uso offline</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 6: Requisitos -->
+        <section>
+          <h2>Requisitos para comenzar</h2>
+          <div class="dark-box">
+            <ul class="feature-list">
+              <li><span class="highlight">Node.js</span> - v16 o superior</li>
+              <li>
+                <span class="highlight">Vite</span> - Para la configuración
+                rápida del proyecto
+              </li>
+              <li>
+                <span class="highlight">Editor de código</span> - VS Code
+                recomendado
+              </li>
+              <li>
+                <span class="highlight">Extensiones VS Code recomendadas:</span>
+                <ul>
+                  <li>ES7+ React/Redux/React-Native snippets</li>
+                  <li>Prettier - Code formatter</li>
+                  <li>ESLint</li>
+                </ul>
+              </li>
+              <li>
+                <span class="highlight">Git</span> - Para control de versiones
+                (opcional)
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 7: Get Started -->
+        <section>
+          <h2>¿Listos para comenzar?</h2>
+          <p>
+            Aprenderemos React de la mejor manera:
+            <span class="highlight">¡construyendo algo real!</span>
+          </p>
+          <div class="dark-box">
+            <p>Comandos iniciales:</p>
+            <pre><code>npm create vite@latest github-finder -- --template react
+cd github-finder
+npm install
+npm run dev</code></pre>
+          </div>
+          <p style="margin-top: 40px">¿Preguntas antes de comenzar?</p>
+        </section>
+
+        <!-- Slide 8: Contact -->
+        <section>
+          <h2>¡Gracias por venir!</h2>
+          <p>Freilyn Bernabe</p>
+          <p>@bernabedev</p>
+          <p>¡Manos a la obra!</p>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        transition: "slide",
+      });
+    </script>
+  </body>
+</html>
