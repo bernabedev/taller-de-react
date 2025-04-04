@@ -24,7 +24,8 @@
         --r-link-color: #61dafb;
         --r-link-color-hover: #4ba6d2;
       }
-      .reveal h1 {
+      .reveal h1,
+      .reveal h2 {
         font-size: 1.5em;
       }
       .reveal h1,
@@ -133,7 +134,7 @@
           </h3>
           <div class="profile">
             <img
-              src="https://bernabe.dev/avatar.webp"
+              src="./avatar.webp"
               alt="Freilyn Bernabe"
               class="profile-img"
             />
@@ -148,7 +149,7 @@
         <!-- Slide 2: Agenda -->
         <section>
           <h2>¿Qué aprenderemos hoy?</h2>
-          <div class="dark-box">
+          <div>
             <ul class="feature-list">
               <li>Configuración de un proyecto React desde cero</li>
               <li>Consumo de APIs externas (GitHub API)</li>
@@ -165,21 +166,24 @@
 
         <!-- Slide 3: Proyecto -->
         <section>
-          <h2>Nuestro Proyecto</h2>
+          <h2 style="font-size: 1.5em">Nuestro Proyecto</h2>
           <div class="grid">
             <div>
-              <h3>Buscador de Usuarios GitHub</h3>
+              <h3 style="font-size: 1em; color: #61dafb93">
+                Buscador de usuarios
+              </h3>
               <ul class="feature-list">
-                <li>Buscar usuarios por nombre</li>
-                <li>Ver detalles de perfil</li>
-                <li>Añadir/eliminar favoritos</li>
-                <li>Gestionar respuestas y errores</li>
+                <li style="font-size: 0.7em">Buscar usuarios por username</li>
+                <li style="font-size: 0.7em">Ver detalles de perfil</li>
+                <li style="font-size: 0.7em">Añadir/eliminar favoritos</li>
+                <li style="font-size: 0.7em">Gestionar respuestas y errores</li>
               </ul>
             </div>
             <div>
               <img
-                src="/api/placeholder/350/250"
+                src="./mockup.png"
                 alt="GitHub User Finder Mockup"
+                style="border-radius: 10px"
               />
             </div>
           </div>
@@ -188,7 +192,7 @@
         <!-- Slide 4: Lo que aprenderemos -->
         <section>
           <h2>Conceptos clave que dominaremos</h2>
-          <ul class="feature-list">
+          <ul class="feature-list" style="font-size: 0.7em">
             <li>
               <span class="highlight">Fetch API</span> - Comunicación con
               servicios externos
@@ -212,10 +216,10 @@
         </section>
 
         <!-- Slide 5: Extras -->
-        <section>
+        <!-- <section>
           <h2>Posibles mejoras futuras</h2>
-          <div class="dark-box">
-            <ul class="feature-list">
+          <div>
+            <ul class="feature-list" style="font-size: 0.7em">
               <li>Modo oscuro / claro con Context API</li>
               <li>Ver repositorios del usuario</li>
               <li>Compartir perfiles por URL</li>
@@ -224,13 +228,13 @@
               <li>PWA para uso offline</li>
             </ul>
           </div>
-        </section>
+        </section> -->
 
         <!-- Slide 6: Requisitos -->
         <section>
           <h2>Requisitos para comenzar</h2>
-          <div class="dark-box">
-            <ul class="feature-list">
+          <div>
+            <ul class="feature-list" style="font-size: 0.7em">
               <li><span class="highlight">Node.js</span> - v16 o superior</li>
               <li>
                 <span class="highlight">Vite</span> - Para la configuración
